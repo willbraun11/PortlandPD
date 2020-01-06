@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def join_7_dataframes(filepath_list=['data/CAD-2012.csv', 
+def join_csv_dataframes(filepath_list=['data/CAD-2012.csv', 
     'data/CAD-2013.csv',
     'data/CAD-2014.csv',
     'data/CAD-2015.csv',
