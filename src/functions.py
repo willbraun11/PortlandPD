@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 import math
 import folium
 from folium.plugins import MarkerCluster
+import os
+import time
+from selenium import webdriver
 
 
 def join_csv_dataframes(filepath_list=['data/CAD-2012.csv', 
@@ -27,6 +30,7 @@ def join_csv_dataframes(filepath_list=['data/CAD-2012.csv',
 
     new_df = pd.concat(all_dfs)
     return new_df
+
 
 def make_datetime_column(df, column_with_date_string):
     df2 = df.copy()
@@ -54,7 +58,7 @@ def plot_clustered_folium_points(map, df, lat_col, long_col,                    
 
 
 def neighborhood_correcter(df):
-    neighborhood_correcter = {'Ardenwald': 'Ardenwald-Johnson Creek', 
+    neighborhood_key = {'Ardenwald': 'Ardenwald-Johnson Creek', 
                           'Argay':'Argay Terrace',
                          'Brooklyn':'Brooklyn Action Corps',
                          'Buckman East': 'Buckman Community Association',
@@ -67,7 +71,7 @@ def neighborhood_correcter(df):
                          'Hosford-Abernethy':'Hosford-Abernethy Neighborhood District Assn.',
                          'Irvington':'Irvington Community Association',
                          'Lloyd':'Lloyd District Community Association',
-                         'Mt Scott-Arletta':'Mt. Scott Arletta',
+                         'Mt Scott-Arleta':'Mt. Scott Arletta',
                          'Mt Tabor':'Mt. Tabor',
                          'Northwest':'Northwest District Association',
                          'Old Town/Chinatown':'Old Town Community Association',
@@ -83,5 +87,33 @@ def neighborhood_correcter(df):
     # police just list Parkrose Heights, neighborhoods has both Parkrose and 
     # Parkrose Heights Association of Neighbors
     # MC Unclaimed #11, 13, 14, 5
-    df['Neighborhood'].map(neighborhood_correcter).fillna(df['col1'])
+    df['Neighborhood'] = df['Neighborhood'].map(neighborhood_key).fillna(df['Neighborhood'])
+
+
+def start_with_combined():
+    df = pd.read_csv('/Users/will/Desktop/Portland/calls_for_service/CAD-combined.csv')
+    df.drop('Unnamed: 0', axis=1, inplace=True)
+    col_with_dates = 'ReportMonthYear'
+    df = make_datetime_column(df, col_with_dates)
+    df = df.sort_values(by='ReportMonthYear')
+    neighborhood_correcter(df)
     return df
+
+def choro_table(df, col_name):
+    table = pd.DataFrame(df[col_name].value_counts().astype(float))
+    table = table.reset_index()
+    table.columns = ['Neighborhood', 'Count']
+    return table
+
+def make_choro_table(table, map, legend_name):
+    portland_geo_data = r'/Users/will/Desktop/Portland/neighborhoods_regions.geojson'
+    folium.Choropleth(
+    geo_data = portland_geo_data,  
+    data = table,
+    columns = ['Neighborhood', 'Count'],
+    key_on = 'properties.MAPLABEL',
+    fill_color = 'YlOrRd', 
+    fill_opacity = 0.7, 
+    line_opacity = 0.2,
+    legend_name = legend_name).add_to(map)
+    display(map)
