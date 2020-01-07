@@ -6,9 +6,10 @@ import matplotlib.pyplot as plt
 import math
 import folium
 from folium.plugins import MarkerCluster
+from selenium import webdriver
 import os
 import time
-from selenium import webdriver
+
 
 
 def join_csv_dataframes(filepath_list=['data/CAD-2012.csv', 
@@ -38,8 +39,8 @@ def make_datetime_column(df, column_with_date_string):
     df2[column_with_date_string] = date_series
     return df2
 
-def make_blank_map(coord_list, zoom_start):
-    map = folium.Map(location=coord_list, zoom_start=zoom_start)
+def make_blank_map(zoom_start):
+    map = folium.Map(location=[45.5236, -122.6750], zoom_start=zoom_start)
     return map
 
 def plot_clustered_folium_points(map, df, lat_col, long_col,                                                     max_records=500):
@@ -105,7 +106,8 @@ def choro_table(df, col_name):
     table.columns = ['Neighborhood', 'Count']
     return table
 
-def make_choro_table(table, map, legend_name):
+def make_choro_map(table, legend_name):
+    map = make_blank_map(11)
     portland_geo_data = r'/Users/will/Desktop/Portland/neighborhoods_regions.geojson'
     folium.Choropleth(
     geo_data = portland_geo_data,  
@@ -116,4 +118,21 @@ def make_choro_table(table, map, legend_name):
     fill_opacity = 0.7, 
     line_opacity = 0.2,
     legend_name = legend_name).add_to(map)
-    display(map)
+    return map
+
+
+def make_and_screenshot(tables, legend_names, output_png_names):
+
+    
+    output_html_names = [name.strip('.png')+'.html' for name in output_png_names]
+    
+    for i in range(len(tables)):
+        driver = webdriver.Chrome(executable_path='/Users/will/Desktop/chromedriver')
+        map = make_choro_map(tables[i], legend_names[i])
+        map.save(output_html_names[i])
+        driver.get(f'file:///Users/will/dsi/PortlandPD/notebooks/{output_html_names[i]}')
+        time.sleep(3)
+        driver.save_screenshot(output_png_names[i])
+        driver.quit()
+    
+        
