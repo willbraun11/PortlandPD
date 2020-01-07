@@ -100,11 +100,24 @@ def start_with_combined():
     neighborhood_correcter(df)
     return df
 
-def choro_table(df, col_name):
-    table = pd.DataFrame(df[col_name].value_counts().astype(float))
+def choro_table(df):
+    table = pd.DataFrame(df['Neighborhood'].value_counts().astype(float))
     table = table.reset_index()
     table.columns = ['Neighborhood', 'Count']
     return table
+
+def split_df_by_date(df, date_list):
+    lst_of_dfs = []
+    for i in date_list:
+        lst_of_dfs.append((df[df['ReportMonthYear'] == i]))
+    return lst_of_dfs
+
+def date_range_of_set(df, col_name_of_dates):
+    date_array = df[col_name_of_dates].unique()
+    date_range = [str(i) for i in date_array]
+    date_range.sort()
+    return [i[0:10] for i in date_range]
+
 
 def make_choro_map(table, legend_name):
     map = make_blank_map(11)
@@ -120,10 +133,13 @@ def make_choro_map(table, legend_name):
     legend_name = legend_name).add_to(map)
     return map
 
+def make_png_list(base, num_values):
+    png_list = []
+    for i in range(num_values):
+        png_list.append(base+str(i+1))
+    return png_list
 
 def make_and_screenshot(tables, legend_names, output_png_names):
-
-    
     output_html_names = [name.strip('.png')+'.html' for name in output_png_names]
     
     for i in range(len(tables)):
