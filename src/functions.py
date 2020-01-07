@@ -72,7 +72,7 @@ def neighborhood_correcter(df):
                          'Hosford-Abernethy':'Hosford-Abernethy Neighborhood District Assn.',
                          'Irvington':'Irvington Community Association',
                          'Lloyd':'Lloyd District Community Association',
-                         'Mt Scott-Arleta':'Mt. Scott Arletta',
+                         'Mt Scott-Arleta':'Mt. Scott-Arleta',
                          'Mt Tabor':'Mt. Tabor',
                          'Northwest':'Northwest District Association',
                          'Old Town/Chinatown':'Old Town Community Association',
@@ -120,7 +120,7 @@ def date_range_of_set(df, col_name_of_dates):
 
 
 def make_choro_map(table, legend_name):
-    map = make_blank_map(11)
+    map = make_blank_map(11.5)
     portland_geo_data = r'/Users/will/Desktop/Portland/neighborhoods_regions.geojson'
     folium.Choropleth(
     geo_data = portland_geo_data,  
@@ -136,7 +136,7 @@ def make_choro_map(table, legend_name):
 def make_png_list(base, num_values):
     png_list = []
     for i in range(num_values):
-        png_list.append(base+str(i+1))
+        png_list.append(base + str(i+1) + '.png')
     return png_list
 
 def make_and_screenshot(tables, legend_names, output_png_names):
@@ -146,7 +146,7 @@ def make_and_screenshot(tables, legend_names, output_png_names):
         driver = webdriver.Chrome(executable_path='/Users/will/Desktop/chromedriver')
         map = make_choro_map(tables[i], legend_names[i])
         map.save(output_html_names[i])
-        driver.get(f'file:///Users/will/dsi/PortlandPD/notebooks/{output_html_names[i]}')
+        driver.get(f'file:///Users/will/dsi/PortlandPD/src/{output_html_names[i]}')
         time.sleep(3)
         driver.save_screenshot(output_png_names[i])
         driver.quit()

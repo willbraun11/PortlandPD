@@ -17,7 +17,7 @@ choro_tables = [choro_table(i) for i in df_split_by_date]
 
 
 # Now that we have the tables, and a list of date_ranges, we need a list of png output file names to pass to the make_and_screenshot function:
-png_list = make_png_list('Test', len(choro_tables))
+png_list = make_png_list('Vice_Crimes_by_Month', len(choro_tables))
 
 
 # Now we are ready to pass these input into the main function...
