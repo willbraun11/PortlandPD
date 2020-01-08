@@ -39,15 +39,12 @@ def make_datetime_column(df, column_with_date_string):
     df2[column_with_date_string] = date_series
     return df2
 
-def make_blank_map(zoom_start):
-    map = folium.Map(location=[45.5236, -122.6750], zoom_start=zoom_start)
+def make_blank_map(zoom_start, location=[45.5236, -122.6750]):
+    map = folium.Map(zoom_start=zoom_start, location=location)
     return map
 
 def plot_clustered_folium_points(map, df, lat_col, long_col,                                                     max_records=500):
     mc = MarkerCluster().add_to(map)
-
- 
-    # add a marker for every record in the filtered data, use a clustered view
     for each in df[0:max_records].iterrows():
         if math.isnan(each[1][lat_col]) or math.isnan(each[1][long_col]):
             continue
@@ -133,14 +130,9 @@ def make_choro_map(table, legend_name):
     legend_name = legend_name).add_to(map)
     return map
 
-def make_png_list(base, num_values):
-    png_list = []
-    for i in range(num_values):
-        png_list.append(base + str(i+1) + '.png')
-    return png_list
 
 def make_and_screenshot(tables, legend_names, output_png_names):
-    output_html_names = [name.strip('.png')+'.html' for name in output_png_names]
+    output_html_names = make_html_list(output_png_names)
     
     for i in range(len(tables)):
         driver = webdriver.Chrome(executable_path='/Users/will/Desktop/chromedriver')
@@ -151,5 +143,21 @@ def make_and_screenshot(tables, legend_names, output_png_names):
         driver.save_screenshot(output_png_names[i])
         os.remove(output_html_names[i])
         driver.quit()
+
+def make_png_list(base, num_values):
+    png_list = []
+    for i in range(num_values):
+        png_list.append(base + str(i+1) + '.png')
+    return png_list
+
+def make_html_list(png_list):
+    png_list = [name.strip('.png')+'.html' for name in png_list]
+    return png_list
+
+
+
+
+if __name__=="__main__":
+    pass
     
         
