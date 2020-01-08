@@ -125,7 +125,7 @@ def make_choro_map(table, legend_name):
     columns = ['Neighborhood', 'Count'],
     key_on = 'properties.MAPLABEL',
     fill_color = 'YlOrRd', 
-    fill_opacity = 0.9, 
+    fill_opacity = 0.7, 
     line_opacity = 0.3,
     legend_name = legend_name).add_to(map)
     return map
@@ -134,8 +134,10 @@ def make_choro_map(table, legend_name):
 def make_and_screenshot(tables, legend_names, output_png_names):
     output_html_names = make_html_list(output_png_names)
     
+
     for i in range(len(tables)):
         driver = webdriver.Chrome(executable_path='/Users/will/Desktop/chromedriver')
+        driver.set_window_size(1100, 900)
         map = make_choro_map(tables[i], legend_names[i])
         map.save(output_html_names[i])
         driver.get(f'file:///Users/will/dsi/PortlandPD/src/{output_html_names[i]}')
