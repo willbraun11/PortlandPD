@@ -21,4 +21,4 @@ png_list = make_png_list('Vice_Crimes_by_Month', len(choro_tables))
 
 
 # Now we are ready to pass these input into the main function...
-make_and_screenshot(choro_tables[0:1], date_range[0:1], png_list[0:1])
+make_and_screenshot(choro_tables, date_range, png_list)
