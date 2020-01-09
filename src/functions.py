@@ -9,6 +9,8 @@ from folium.plugins import MarkerCluster
 from selenium import webdriver
 import os
 import time
+from PIL import Image
+
 
 
 def make_datetime_column(df, column_with_date_string):
@@ -103,8 +105,8 @@ def make_vice_map(table, legend_name):
     data = table,
     columns = ['Neighborhood', 'Count'],
     key_on = 'properties.MAPLABEL',
-    fill_color = 'YlOrRd', 
-    fill_opacity = 0.6, 
+    fill_color = 'BuGn', 
+    fill_opacity = 0.8, 
     line_opacity = 0.4,
     legend_name = legend_name,
     bins=[float(x) for x in bin_intervals],
@@ -188,7 +190,6 @@ def make_png_list(base, num_values):
 def make_html_list(png_list):
     png_list = [name.strip('.png')+'.html' for name in png_list]
     return png_list
-
 
 
 if __name__=="__main__":

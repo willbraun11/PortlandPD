@@ -16,10 +16,10 @@ for i in range(47):
         years_list.append(str(i+1))
 
 # Vice Files:
-# sourcepath = '/Users/will/Desktop/Portland/Images/vice_calls_everyothermonth/Vice_Crimes_by_Month'
+sourcepath = '/Users/will/Desktop/Portland/Images/vice_calls_everyothermonth/Vice_Crimes_by_Month'
 
 # Total Files:
-sourcepath = '/Users/will/Desktop/Portland/Images/total_calls_everyothermonth/Total_Crimes_by_Month'
+# sourcepath = '/Users/will/Desktop/Portland/Images/total_calls_everyothermonth/Total_Crimes_by_Month'
 
 
 def make_gif(sourcepath, years):

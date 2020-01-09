@@ -64,6 +64,13 @@ To better analyze how Vice Crimes have changed over time, here they are represen
 To begin, an interactive clustered map is created to visualize Vice Crimes throughout the city (html file located in images folder, it can be downloaded and run on a local machine).
 
 
+<p align="center">
+  <img  src="images/Total_by_Month.gif">
+</p>
+
+<p align="center">
+  <img  src="images/Vice_by_Month.gif">
+</p>
 
 ### Maybe Useful...
 
