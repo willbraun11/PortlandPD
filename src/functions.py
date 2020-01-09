@@ -128,8 +128,12 @@ def make_choro_map_with_bins(table, legend_name):
     fill_opacity = 0.6, 
     line_opacity = 0.4,
     legend_name = legend_name,
-    bins=[float(x) for x in bin_intervals]).add_to(map)
+    bins=[float(x) for x in bin_intervals],
+    nan_fill_color='white').add_to(map)
     return map
+# Use for Vice: BuGn
+# old color: YlOrRd
+# other option: BuPu
 
 def make_choro_map(table, legend_name):
     map = make_blank_map(11.5)
@@ -178,7 +182,10 @@ def make_and_screenshot(tables, legend_names, output_png_names):
 def make_png_list(base, num_values):
     png_list = []
     for i in range(num_values):
-        png_list.append(base + str(i+1) + '.png')
+        if i<9:
+            png_list.append(base + '0' + str(i+1) + '.png')
+        else:
+            png_list.append(base + str(i+1) + '.png')
     return png_list
 
 def make_html_list(png_list):
