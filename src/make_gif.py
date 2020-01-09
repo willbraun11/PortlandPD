@@ -17,9 +17,11 @@ for i in range(47):
 
 # Vice Files:
 sourcepath = '/Users/will/Desktop/Portland/Images/vice_calls_everyothermonth/Vice_Crimes_by_Month'
+save_path = 'Vice_by_Month.gif'
 
 # Total Files:
 # sourcepath = '/Users/will/Desktop/Portland/Images/total_calls_everyothermonth/Total_Crimes_by_Month'
+# save_path = 'Total_by_Month.gif'
 
 
 def make_gif(sourcepath, years):
@@ -27,7 +29,7 @@ def make_gif(sourcepath, years):
     for year in years:
         new_frame = Image.open(sourcepath+year+'.png')
         frames.append(new_frame)
-    frames[0].save('Total_by_Month.gif',
+    frames[0].save(save_path,
                     format='GIF',
                     append_images=frames[1:],
                     save_all=True,

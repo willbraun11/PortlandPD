@@ -41,19 +41,19 @@ The primary focus of early data analysis was to determine if there were any sign
 ## Number of Calls Dispatched for Drug-related Offenses <a name="drug_calls"></a>
 
 <p align="center">
-  <img  src="images/total_calls_over_time.png">
+  <img  src="images/total_calls_over_time.png"  width="920" height="600">
 </p>
 First a view of the total number of Dispatched Calls in Portland from the date range of the data set, January 2012 to September 2019.
 
 
 <p align="center">
-  <img  src="images/vice_calls_over_time.png">
+  <img  src="images/vice_calls_over_time.png" width="920" height="600">
 </p>
 Portland categorizes drug-related calls under the "Vice" category.  Note that the overall number of Vice calls stays relatively constant over time while the overall number of calls increases.
 
 
 <p align="center">
-  <img  src="images/vice_rate_over_time.png">
+  <img  src="images/vice_rate_over_time.png" width="920" height="600">
 </p>
 To better analyze how Vice Crimes have changed over time, here they are represented as a ratio of total calls.
 
@@ -65,18 +65,22 @@ To begin, an interactive clustered map is created to visualize Vice Crimes throu
 
 
 <p align="center">
-  <img  src="images/Total_by_Month.gif">
+  <img  src="images/Total_by_Month.gif" width="920" height="600">
 </p>
 
 <p align="center">
-  <img  src="images/Vice_by_Month.gif">
+  <img  src="images/Vice_by_Month.gif" width="920" height="600">
 </p>
 
-### Maybe Useful...
 
-Further analysis could combine many of these data-sets to identify trends across data-sets.  This study pertains to the Dispatched Calls data-set which contains 7 csv files each containing roughly 30,000 rows and 14 columns - with each row representing one dispatched police call.  The columns include values for lat and long, call category ('Vice', 'Assault', 'Community Assist', etc...), response time, priority, and neighborhood.
+<p align="center">
+  <img  src="images/12_crime_types.png" width="920" height="600">
+</p>
 
-width="460" height="300"
+<p align="center">
+  <img  src="images/normalized_12_crime_types.png" width="920" height="600">
+</p>
+
 
 
 # References
