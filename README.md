@@ -2,17 +2,18 @@
   <img  src="images/portland_banner.png">
 </p>
 
-# A history of Marijuana Legalization in Portland, OR:
-Oregon was the first state to decriminalize marijuana in the United States in 1973.  The Oregon Decriminalizaion Bill made possession of 1 ounce or less a violation (not a crime) punishable by a fine of $500-1000.  In 1986 - 26 years before Colorado and Washington became the first states to legalize marijuana - a Bill sought to legalize marijuana in Oregon.  It failed to pass with only 26.33% support from voters.  In 1997, House Bill 3643 was passed and recriminalized possession of less than an ounce to a Class C misdemeanor.
+# A history of Marijuana Laws in Portland, OR:
+**1973 -**  The Oregon Decriminalization Bill made possession of 1 ounce or less a violation (not a crime) punishable by a fine of $500-1000.  
+**1986 -** 26 years before Colorado and Washington became the first states to legalize marijuana - an Oregon Bill sought to legalize marijuana in Oregon.  It failed to pass with only 26.33% support from voters.  
+**1997 -** House Bill 3643 was passed and recriminalized possession of less than an ounce to a Class C misdemeanor.
+<br />**2012 -** A bill proposing to legalize marijuana failed to pass by a margin of 53% against - 47% for.
+<br />**November 1st, 2014 -** Oregon became the 5th state to pass legislation to legalize recreational use of marijuana and allow for state-controlled sale of cannabis. 
+<br />**July 1st, 2015 -** The legalization of marijuana in Oregon officially takes effect.
+<br />**October 1st, 2015 -** Governor Kate Brown signed an emergency bill declaring marijuana sales legal to recreational consumers (Paris, Achen)
 
-A bill proposing to legalize marijuana in 2012 failed to pass by a margin of 53% against - 47% for.
-
-Finally in November, 2014 Oregon became the 5th state to pass legislation to legalize recreational use of marijuana and allow for state-controlled sale of cannabis. 
-
-The legalization of marijuana in Oregon officially took effect on July 1st, 2015.  On October 1st, 2015, Oregon Governor Kate Brown signed an emergency bill declaring marijuana sales legal to recreational consumers (Paris, Achen).   
 
 ## Data Sources
-While searching for datasets I came across the ["Police Data Initative"](https://www.policedatainitiative.org/).  This initiative serves to:
+While searching for datasets I came across the ["Police Data Initative"](https://www.policedatainitiative.org/).  This initiative:
 *<center>"promotes the use of open data to encourage joint problem solving, innovation, enhanced understanding, and accountability <br /> between communities and the law enforcement agencies that serve them." (https://www.policedatainitiative.org/) </center>* 
 
 Over 130 US Police Agencies have voluntarily joined the Initiative and release datasets that summarize some of their activities.  Searching the data-sets of these 130 Agencies reveals that some Agencies are much more thorough in their compilation and release of data than others.  Portland PD is particularly generous with their information and releases [data-sets](https://www.portlandoregon.gov/police/71673) pertaining to Dispatched Calls, Traffic Stops, Uses of Force, Officer Involved Shootings, Traffic Stops, and others.  Portland PD was also of particular interest due to the recent legalization of marijuana and its' potential impact on crime trends.  
