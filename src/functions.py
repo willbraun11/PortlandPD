@@ -115,6 +115,21 @@ def date_range_of_set(df, col_name_of_dates):
     date_range.sort()
     return [i[0:10] for i in date_range]
 
+def make_choro_map_with_bins(table, legend_name):
+    bin_intervals = [0, 287, 574, 861, 1148, 1435, 1722]
+    map = make_blank_map(11.5)
+    portland_geo_data = r'/Users/will/Desktop/Portland/neighborhoods_regions.geojson'
+    folium.Choropleth(
+    geo_data = portland_geo_data,  
+    data = table,
+    columns = ['Neighborhood', 'Count'],
+    key_on = 'properties.MAPLABEL',
+    fill_color = 'YlOrRd', 
+    fill_opacity = 0.6, 
+    line_opacity = 0.4,
+    legend_name = legend_name,
+    bins=[float(x) for x in bin_intervals]).add_to(map)
+    return map
 
 def make_choro_map(table, legend_name):
     map = make_blank_map(11.5)
@@ -125,11 +140,25 @@ def make_choro_map(table, legend_name):
     columns = ['Neighborhood', 'Count'],
     key_on = 'properties.MAPLABEL',
     fill_color = 'YlOrRd', 
-    fill_opacity = 0.7, 
-    line_opacity = 0.3,
+    fill_opacity = 0.6, 
+    line_opacity = 0.4,
     legend_name = legend_name).add_to(map)
     return map
 
+def make_and_screenshot_with_bins(tables, legend_names, output_png_names):
+    output_html_names = make_html_list(output_png_names)
+    
+
+    for i in range(len(tables)):
+        driver = webdriver.Chrome(executable_path='/Users/will/Desktop/chromedriver')
+        driver.set_window_size(1100, 900)
+        map = make_choro_map_with_bins(tables[i], legend_names[i])
+        map.save(output_html_names[i])
+        driver.get(f'file:///Users/will/dsi/PortlandPD/src/{output_html_names[i]}')
+        time.sleep(3)
+        driver.save_screenshot(output_png_names[i])
+        os.remove(output_html_names[i])
+        driver.quit()
 
 def make_and_screenshot(tables, legend_names, output_png_names):
     output_html_names = make_html_list(output_png_names)
