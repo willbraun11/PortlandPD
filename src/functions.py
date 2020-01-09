@@ -115,6 +115,25 @@ def date_range_of_set(df, col_name_of_dates):
     date_range.sort()
     return [i[0:10] for i in date_range]
 
+
+def make_vice_map(table, legend_name):
+    bin_intervals = [0, 60, 120, 180, 240, 300, 360]
+    map = make_blank_map(11.5)
+    portland_geo_data = r'/Users/will/Desktop/Portland/neighborhoods_regions.geojson'
+    folium.Choropleth(
+    geo_data = portland_geo_data,  
+    data = table,
+    columns = ['Neighborhood', 'Count'],
+    key_on = 'properties.MAPLABEL',
+    fill_color = 'YlOrRd', 
+    fill_opacity = 0.6, 
+    line_opacity = 0.4,
+    legend_name = legend_name,
+    bins=[float(x) for x in bin_intervals],
+    nan_fill_color='white').add_to(map)
+    return map
+
+
 def make_choro_map_with_bins(table, legend_name):
     bin_intervals = [0, 287, 574, 861, 1148, 1435, 1722]
     map = make_blank_map(11.5)
