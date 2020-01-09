@@ -1,3 +1,7 @@
+<p align="center">
+  <img  src="images/portland_banner.png">
+</p>
+
 # A history of Marijuana Legalization in Portland, OR:
 Oregon was the first state to decriminalize marijuana in the United States in 1973.  The Oregon Decriminalizaion Bill made possession of 1 ounce or less a violation (not a crime) punishable by a fine of $500-1000.  In 1986 - 26 years before Colorado and Washington became the first states to legalize marijuana - a Bill sought to legalize marijuana in Oregon.  It failed to pass with only 26.33% support from voters.  In 1997, House Bill 3643 was passed and recriminalized possession of less than an ounce to a Class C misdemeanor.
 
