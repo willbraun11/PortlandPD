@@ -15,6 +15,8 @@
 1. [Data Sources](#data_sources)
 2. [Data Pipeline](#data_pipeline)
 3. [Data Analyis](#data_analysis)
+4. [Number of Calls Dispatched for Drug-related Offenses](#drug_calls)
+5. [Vice Crimes Location Over Time](#vice_over_time)
 
 
 ## Data Sources <a name="data_sources"></a>
@@ -36,7 +38,7 @@ The Dispatched Calls Data-set was extremely clean.  As a result, the primary pur
 The primary focus of early data analysis was to determine if there were any significant impacts of the legalization of marijuana on criminal trends.  The key date of trend analysis is July 1st, 2015 - the day that the legalization bill came into effect.  To begin it was useful to get an understanding of how many Oregonians regularly use marijuana.  Since the early 2000's, surveys maintained by the Drug Enforcement Administration and the National Organization for the Reform of Marijuana Laws show that the rate of Oregon citizens who use cannabis is between 30-40% higher than the national average.  Oregon ranks in the top 20th percentile for marijuana use in several different age ranges (DEA, Portland Business Journal, NORML).  According to the Oregon Health Authority, 19% of all adults and 31% of adults age 18-24 regularly use marijuana.  This compares to 11% and 18% in 2014, respectively (OHA).
 
 
-## Number of Calls Dispatched for Drug-related Offenses
+## Number of Calls Dispatched for Drug-related Offenses <a name="drug_calls"></a>
 
 <p align="center">
   <img  src="images/total_calls_over_time.png">
@@ -55,7 +57,7 @@ Portland categorizes drug-related calls under the "Vice" category.  Note that th
 </p>
 To better analyze how Vice Crimes have changed over time, here they are represented as a ratio of total calls.
 
-## Vice Crimes Location Over Time
+## Vice Crimes Location Over Time <a name="vice_over_time"></a>
 <p align="center">
   <img  src="images/vice_crime_clustered_map.png">
 </p>
