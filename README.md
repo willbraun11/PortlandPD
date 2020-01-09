@@ -11,8 +11,13 @@
 <br />**July 1st, 2015 -** The legalization of marijuana in Oregon officially takes effect.
 <br />**October 1st, 2015 -** Governor Kate Brown signed an emergency bill declaring marijuana sales legal to recreational consumers (Paris, Achen)
 
+## Table of Contents
+1. [Data Sources](#data_sources)
+2. [Data Pipeline](#data_pipeline)
+3. [Data Analyis](#data_analysis)
 
-## Data Sources
+
+## Data Sources <a name="data_sources"></a>
 While searching for datasets I came across the ["Police Data Initative"](https://www.policedatainitiative.org/).  This initiative:
 
 *<center> "promotes the use of open data to encourage joint problem solving, innovation, enhanced understanding, and accountability between communities and the law enforcement agencies that serve them." (https://www.policedatainitiative.org/) </center>* 
@@ -20,14 +25,14 @@ While searching for datasets I came across the ["Police Data Initative"](https:/
 Over 130 US Police Agencies have voluntarily joined the Initiative and release datasets that summarize some of their activities.  Searching the data-sets of these 130 Agencies reveals that some Agencies are much more thorough in their compilation and release of data than others.  Portland PD is particularly generous with their information and releases [data-sets](https://www.portlandoregon.gov/police/71673) pertaining to Dispatched Calls, Traffic Stops, Uses of Force, Officer Involved Shootings, Traffic Stops, and others.  Portland PD was also of particular interest due to the recent legalization of marijuana and its' potential impact on crime trends.  
 
 
-## Data Pipeline
+## Data Pipeline <a name="data_pipeline"></a>
 This study pertains to the Dispatched Calls data-set which contains 7 csv files each containing roughly 30,000 rows and 14 columns - with each row representing one dispatched police call.  The columns include values for lat and long, call category ('Vice', 'Assault', 'Community Assist', etc...), response time, priority, neighborhood, and month of call.  
 
 In order to plot this data delineated by Portland Neighborhoods, the GeoJSON data from ["PortlandMaps - Open Data"](https://gis-pdx.opendata.arcgis.com/datasets/neighborhoods-regions/data) was also utilized.  This data provided polygonal information of Portland's neighborhood barriers.
 
 The Dispatched Calls Data-set was extremely clean.  As a result, the primary purpose of the pipeline was to join the 7 yearly csv files and select appropriate fill values for the rare nulls in each field.  After loading the Portland neighborhood GeoJSON, it was apparent that many neighborhood names differed between the neighborhood field of the Police Data and the official Neighborhood name as published by the city.  This required a correction of the Police Data to match the GeoJSON neighborhood fields.
 
-## Data Analysis
+## Data Analysis <a name="data_analysis"></a>
 The primary focus of early data analysis was to determine if there were any significant impacts of the legalization of marijuana on criminal trends.  The key date of trend analysis is July 1st, 2015 - the day that the legalization bill came into effect.  To begin it was useful to get an understanding of how many Oregonians regularly use marijuana.  Since the early 2000's, surveys maintained by the Drug Enforcement Administration and the National Organization for the Reform of Marijuana Laws show that the rate of Oregon citizens who use cannabis is between 30-40% higher than the national average.  Oregon ranks in the top 20th percentile for marijuana use in several different age ranges (DEA, Portland Business Journal, NORML).  According to the Oregon Health Authority, 19% of all adults and 31% of adults age 18-24 regularly use marijuana.  This compares to 11% and 18% in 2014, respectively (OHA).
 
 
