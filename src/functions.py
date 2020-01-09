@@ -95,7 +95,7 @@ def date_range_of_set(df, col_name_of_dates):
 
 
 def make_vice_map(table, legend_name):
-    bin_intervals = [0, 60, 120, 180, 240, 300, 360]
+    bin_intervals = [0, 6, 12, 18, 24, 30, 36]
     map = make_blank_map(11.5)
     portland_geo_data = r'/Users/will/Desktop/Portland/neighborhoods_regions.geojson'
     folium.Choropleth(
@@ -188,7 +188,6 @@ def make_png_list(base, num_values):
 def make_html_list(png_list):
     png_list = [name.strip('.png')+'.html' for name in png_list]
     return png_list
-
 
 
 
