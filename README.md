@@ -23,7 +23,7 @@ The city of Portland has a unique culture even amongst the liberal cities of the
 <br />**2012 -** A bill proposing to legalize marijuana failed to pass by a margin of 53% against - 47% for.
 <br />**November 1st, 2014 -** Oregon became the 5th state to pass legislation to legalize recreational use of marijuana and allow for state-controlled sale of cannabis. 
 <br />**July 1st, 2015 -** The legalization of marijuana in Oregon officially took effect.
-<br />**October 1st, 2015 -** Governor Kate Brown signed an emergency bill declaring marijuana sales legal to recreational consumers (Paris, Achen)
+<br />**October 1st, 2015 -** Governor Kate Brown signed an emergency bill declaring marijuana sales legal to recreational consumers (Aachen)
 
 
 ## Data Sources <a name="data_sources"></a>
