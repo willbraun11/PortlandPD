@@ -13,6 +13,7 @@ The city of Portland has a unique culture even amongst the liberal cities of the
 4. [Data Analyis](#data_analysis)
 5. [Number of Calls Dispatched for Drug-related Offenses](#drug_calls)
 6. [Vice Crimes Location Over Time](#vice_over_time)
+7. [References](#references)
 
 
 ## A history of Marijuana Laws in Portland, OR <a name="marijuana_law"></a>:
@@ -36,7 +37,7 @@ In addition to using the Dispatched Call Data, GeoJSON Neighborhood delineation 
 
 
 ## Data Pipeline <a name="data_pipeline"></a>
-This study pertains to the "Dispatched Calls" data-set from the Portland PD which contains 7 .csv files each containing 14 columns.  When combined, the datasets contained approximately 1.8 million rows - with each row representing one dispatched police call.  Select columns are shown below:
+This study pertains to the "Dispatched Calls" data-set from the Portland PD which contains 7 .csv files each containing 14 columns.  When combined, the datasets contained approximately 1.8 million rows - with each row representing one dispatched police call.  Dispatch data ranged from January 2012 to November 2019.  Select columns are shown below:
 
 | Column | Description |
 |---|---|
@@ -55,60 +56,67 @@ The Dispatched Calls Data-set was extremely clean.  As a result, the primary pur
 While the primary focus of this project was to determine if there were any significant impacts of the legalization of marijuana on criminal trends, initial data exploration was performed to gain an understanding of what call types are most frequent and when/where they peaked - beginning with an analysis of total dispatched calls over the entire date range of the data set.
 
 <p align="center">
-  <img  src="images/total_calls_over_time.png"  width="920" height="600">
+  <img  src="images/total_calls_over_time.png"  width="720" height="440">
 </p>
 
- The key date of trend analysis is July 1st, 2015 - the day that the legalization bill came into effect.  To begin it was useful to get an understanding of how many Oregonians regularly use marijuana.  Since the early 2000's, surveys maintained by the Drug Enforcement Administration and the National Organization for the Reform of Marijuana Laws show that the rate of Oregon citizens who use cannabis is between 30-40% higher than the national average.  Oregon ranks in the top 20th percentile for marijuana use in several different age ranges (DEA, Portland Business Journal, NORML).  According to the Oregon Health Authority, 19% of all adults and 31% of adults age 18-24 regularly use marijuana.  This compares to 11% and 18% in 2014, respectively (OHA).
+It was immediately apparent that Portland experienced significant seasonal crime variation.  In addition, total calls had risen over time, out-pacing the 8%% population growth from seen from 2012 to 2018 (opendatainitiative.org).  The top 12 most common call types were selected and mapped over the same time frame.  To account for the increasing trend in the number of total calls, the second graph normalizes the 12 most common call types into call rates by dividing the count of category call types by the total number of calls.
+
+ <p align="center">
+  <img  src="images/12_crime_types.png">
+</p>
+ 
+
+<p align="center">
+  <img  src="images/normalized_12_crime_types.png">
+</p>
+
+In the normalization graph there are several interesting trends.  Firstly, there is a spike in "Welfare Check" calls in the winter of 2017.  Winter storm Jupiter in December 2016 was the cities heaviest snowstorm since February 1995 (Edman).  This storm may also be responsible for the spike in "Alarm" calls in the same timeframe.  Normalized "Collision" call rates also reach all-time highs in late 2016, the same time that marijuana first became legal to sell in Oregon (October 2015).  Stolen Vehicle rates begin to increase 2015 and remain elevated for the duration of the data.  Finally, "Vice" crimes (Portland PD defines "Vice" as calls involving drugs or prostitution), drop in late 2014 and remain at lower rates thru 2019.  The bill to legalize marijuana was passed in November of 2014 and came into effect July 1st 2015.  Vice rates appear to be effected by these dates.  
+
+Accordingly, it was useful to get an understanding of how many Oregonians regularly use marijuana.  Since the early 2000's, surveys maintained by the Drug Enforcement Administration and the National Organization for the Reform of Marijuana Laws show that the rate of Oregon citizens who use cannabis is between 30-40% higher than the national average (DEA, NORML).  Oregon ranks in the top 20th percentile for marijuana use in several different age ranges.  According to the Oregon Health Authority, 19% of all adults and 31% of adults age 18-24 regularly use marijuana.  This compares to 11% and 18% in 2014, respectively (OHA).
 
 
 ## Number of Calls Dispatched for Drug-related Offenses <a name="drug_calls"></a>
-
+Recall the overall distribution of dispatched calls over time:
 <p align="center">
-  <img  src="images/total_calls_over_time.png"  width="920" height="600">
+  <img  src="images/total_calls_over_time.png"  width="600" height="360">
 </p>
-First a view of the total number of Dispatched Calls in Portland from the date range of the data set, January 2012 to September 2019.
 
-
+This illustrates the distribution of calls pertaining to the "Vice" Call Category.  It is important to note that the overall number of Vice calls stays relatively constant over time while the overall number of calls increases.
 <p align="center">
   <img  src="images/vice_calls_over_time.png" width="920" height="600">
 </p>
-Portland categorizes drug-related calls under the "Vice" category.  Note that the overall number of Vice calls stays relatively constant over time while the overall number of calls increases.
 
 
+In order to analyze the rate of Vice calls, the Vice calls were normalized to be shown as a rate of calls per total calls.  The decrease in average rates before and after marijuana legalization is approximately 26%.  
 <p align="center">
   <img  src="images/vice_rate_over_time.png" width="920" height="600">
 </p>
-To better analyze how Vice Crimes have changed over time, here they are represented as a ratio of total calls.
+
 
 ## Vice Crimes Location Over Time <a name="vice_over_time"></a>
+Has there been a shift in Vice "hotspots" over time?  Do Vice calls follow the same neighborhood distribution as total calls?  To begin, an interactive clustered map is created to visualize Vice Crimes throughout the city (.html file is located in the images folder, it can be downloaded and run on a local machine).
 <p align="center">
   <img  src="images/vice_crime_clustered_map.png">
 </p>
-To begin, an interactive clustered map is created to visualize Vice Crimes throughout the city (html file located in images folder, it can be downloaded and run on a local machine).
 
 
+Next a count of dispatched calls delineated by neighborhood was created.  This is a count of dispatched calls to each Portland neighborhood ranging from January 2012 thru November 2019.
 <p align="center">
   <img  src="images/Total_by_Month.gif" width="920" height="600">
 </p>
 
+
 <p align="center">
   <img  src="images/Vice_by_Month.gif" width="920" height="600">
 </p>
-
-
-<p align="center">
-  <img  src="images/12_crime_types.png" width="920" height="600">
-</p>
-
-<p align="center">
-  <img  src="images/normalized_12_crime_types.png" width="920" height="600">
-</p>
+And for the same time frame, the distribution of Vice crimes delineated by neighborhood is shown above.  It appears that Portsmouth and Saint Johns have higher Vice activity per capita compared to the rest of Portland.  Further analysis is needed in order to confirm statistical significance.
 
 
 
-# References
-https://en.wikipedia.org/wiki/Cannabis_in_Oregon#Legal_history
- 
+
+
+
+### References <a name="references"></a>
 "Oregon Marijuana Statistics". National Organization for the Reform of Marijuana Laws. 2008-12-05. Archived from the original on April 15, 2008. Retrieved 2008-12-17.
 
 "Oregon marijuana use among highest in U.S." Portland Business Journal. 2006-04-06. Archived from the original on 2008-02-25. Retrieved 2008-12-17.
@@ -117,9 +125,15 @@ https://en.wikipedia.org/wiki/Cannabis_in_Oregon#Legal_history
 
 Aachen, Paris (March 30, 2016). "New marijuana law clears way for recreational, medical sales in same place". Portland Tribune. Archived from the original on February 11, 2017. Retrieved 2017-02-08.
 
+https://en.wikipedia.org/wiki/Cannabis_in_Oregon#Legal_history
+ 
 https://www.policedatainitiative.org/
 
 https://gis-pdx.opendata.arcgis.com/datasets/neighborhoods-regions/data
 
 Oregon Health Authority
 https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/MARIJUANA/Documents/fact-sheet-marijuana-adults.pdf
+
+https://www.opendatanetwork.com/entity/1600000US4159000/Portland_OR/demographics.population.change?year=2017
+
+Jon Erdman - https://weather.com/storms/winter/news/portland-oregon-worst-winter-city-2016-2017
